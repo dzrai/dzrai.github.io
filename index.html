@@ -264,6 +264,49 @@
   .mastery-advanced    { background: var(--teal-light); color: var(--teal); }
   .mastery-master      { background: #f0fdf4; color: #166534; }
 
+  /* New Questions Card */
+  #new-questions-card {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    border-radius: var(--radius);
+    padding: 16px 18px;
+    color: white;
+    box-shadow: 0 6px 20px rgba(79,70,229,0.3);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  #new-questions-card .nq-left { flex: 1; }
+  #new-questions-card .nq-badge {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.8px;
+    text-transform: uppercase; opacity: 0.8; margin-bottom: 4px;
+  }
+  #new-questions-card .nq-title {
+    font-size: 16px; font-weight: 700; margin-bottom: 3px; letter-spacing: -0.3px;
+  }
+  #new-questions-card .nq-sub {
+    font-size: 12px; opacity: 0.75;
+  }
+  #new-questions-card .btn-nq {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: var(--radius-sm);
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  #new-questions-card .btn-nq:hover { background: rgba(255,255,255,0.3); }
+  #new-questions-card .btn-nq:active { transform: scale(0.97); }
+
   #recent-days { margin-bottom: 8px; }
   .day-dots { display: flex; gap: 6px; align-items: center; }
   .day-dot-wrap { display: flex; flex-direction: column; align-items: center; gap: 3px; }
@@ -635,6 +678,17 @@
 
       <div class="section-label">Domain Mastery</div>
       <div id="domain-grid"></div>
+
+      <div id="new-questions-card">
+        <div class="nq-left">
+          <div class="nq-badge">✨ Recently Added</div>
+          <div class="nq-title">30 New Questions</div>
+          <div class="nq-sub">Macro Practice · DSM Disorders</div>
+        </div>
+        <button class="btn-nq" onclick="startNewQuestions()">
+          Study <i class="ti ti-arrow-right"></i>
+        </button>
+      </div>
 
       <div id="recent-days">
         <div class="section-label">Last 7 Days</div>
@@ -3847,458 +3901,487 @@ const QUESTION_BANK = [
     "explanation": "NASW Code 1.14 addresses clients with diminished capacity, requiring social workers to safeguard the interests of clients who cannot fully direct their own care. While the power of attorney grants legal decision-making authority, it does not override the social worker's ethical obligation to advocate for the client's wellbeing. A care conference creates a collaborative, multidisciplinary forum to address the safety concern and explore alternatives with the surrogate decision-maker.",
     "distractor": "Option B may eventually be warranted if the discharge plan presents imminent danger and other interventions fail, but reporting to APS as an immediate first step is premature when a collaborative care conference has not yet been attempted.",
     "framework": "NASW Code 1.14 — Clients Who Lack Decision-Making Capacity; 1.01 — Commitment to Clients"
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "FIRST",
+    "question": "A social worker at a community nonprofit is asked to assess whether a low-income neighborhood has adequate mental health services. What should the social worker do FIRST?",
+    "options": [
+      "Present findings to the city council to secure funding",
+      "Conduct a community needs assessment using multiple data sources and stakeholder input",
+      "Develop a new mental health program based on the social worker's clinical experience",
+      "Partner with local hospitals to create a referral network"
+    ],
+    "correct": "B",
+    "explanation": "A community needs assessment is the foundational first step in macro practice. It identifies gaps, assets, and priorities using quantitative data (census, health statistics) and qualitative input (focus groups, key informant interviews) from community members and stakeholders before any program or advocacy response is designed.",
+    "distractor": "Options A, C, and D all represent actions that come AFTER the needs assessment — they assume the problem and solution are already known.",
+    "framework": "Macro social work practice — community needs assessment as the planned change first step",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "NEXT",
+    "question": "A community social worker has completed a needs assessment showing that elderly residents in a rural county lack transportation to medical appointments. Community members, local churches, and health providers have all expressed interest in addressing this gap. What should the social worker do NEXT?",
+    "options": [
+      "Apply for a federal grant to fund a transportation program",
+      "Convene a coalition meeting with interested stakeholders to plan a collaborative response",
+      "Hire volunteer drivers and launch a transportation program immediately",
+      "Advocate for public bus service expansion at the next county commissioner meeting"
+    ],
+    "correct": "B",
+    "explanation": "After a needs assessment, the next step in macro practice is to engage stakeholders in collaborative planning. Building a coalition leverages existing community interest, ensures buy-in, distributes responsibility, and increases sustainability. Jumping to implementation (C), funding (A), or advocacy (D) without stakeholder alignment bypasses this critical step.",
+    "distractor": "A is premature — you need a program plan before a grant application. C skips planning. D is one strategy, not the coordinated next step.",
+    "framework": "Coalition building and collaborative planning in macro practice",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "BEST",
+    "question": "A social worker wants to change a city ordinance that criminalizes public sleeping, which primarily affects homeless individuals. Which advocacy strategy is BEST when the social worker has access to a sympathetic city council member?",
+    "options": [
+      "Organize a public protest to pressure the city council to act",
+      "Use an insider strategy by working directly with the council member to propose amendments",
+      "File a legal complaint with the state civil rights commission",
+      "Conduct a media campaign highlighting the harmful effects of the ordinance"
+    ],
+    "correct": "B",
+    "explanation": "When an advocate has access to a sympathetic decision-maker (insider access), an insider strategy — working directly with that person to craft and advance policy change — is more effective and efficient than outside pressure tactics. Insider strategies are appropriate when you have allies within the system.",
+    "distractor": "Outside strategies (protest, media) are appropriate when insider access is unavailable or when public pressure is needed. Legal action (C) is a different type of strategy used when rights violations are documented.",
+    "framework": "Policy advocacy — insider vs. outsider strategies; Jansson's legislative advocacy model",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "GENERAL",
+    "question": "According to Rothman's models of community organization, which model is BEST characterized by consensus-building, broad participation, and self-help among community members?",
+    "options": [
+      "Social action",
+      "Social planning",
+      "Locality development",
+      "Community advocacy"
+    ],
+    "correct": "C",
+    "explanation": "Locality development (also called community development) emphasizes broad community participation, consensus, self-help, and building community capacity. Social action (A) focuses on conflict and power redistribution. Social planning (B) relies on technical expertise and data-driven problem solving. 'Community advocacy' is not one of Rothman's three original models.",
+    "distractor": "All three models are valid approaches, but the key words 'consensus-building, broad participation, and self-help' specifically describe locality development.",
+    "framework": "Rothman's models of community organization — locality development, social planning, social action",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "GENERAL",
+    "question": "A social worker is developing a new after-school program for at-risk youth. She creates a logic model. Which component of the logic model describes the direct products of the program's activities (e.g., number of youth served, sessions held)?",
+    "options": [
+      "Outcomes",
+      "Inputs",
+      "Outputs",
+      "Impact"
+    ],
+    "correct": "C",
+    "explanation": "Outputs are the direct, measurable products of program activities — what is produced (e.g., '150 youth enrolled,' '48 group sessions held'). Outcomes are changes in knowledge, attitudes, or behavior. Inputs are resources invested. Impact is long-term, population-level change. Confusing outputs and outcomes is a common exam mistake.",
+    "distractor": "Outcomes (A) are changes in participants — outputs produce outcomes. Inputs (B) go IN to the program. Impact (D) is the broader long-term community change.",
+    "framework": "Program development and evaluation — logic model components",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "BEST",
+    "question": "A social worker directing a nonprofit receives a grant with specific deliverables and reporting requirements. To BEST ensure accountability to the funder and the community served, the social worker should:",
+    "options": [
+      "Spend the grant funds as needed to meet the community's emerging needs, regardless of funder restrictions",
+      "Implement the program as designed, collect data on outputs and outcomes, and report accurately to the funder",
+      "Redirect unspent funds at year-end to other organizational priorities",
+      "Focus only on qualitative success stories rather than quantitative data to demonstrate impact"
+    ],
+    "correct": "B",
+    "explanation": "Grant accountability requires implementing the program as designed, collecting the agreed-upon data (both outputs and outcomes), and reporting accurately and transparently to the funder. Fidelity to the grant agreement is an ethical and legal obligation. Misusing funds (A, C) violates the grant contract and may constitute fraud.",
+    "distractor": "B reflects fiscal and programmatic accountability. The other options reflect misuse or incomplete accountability to funders.",
+    "framework": "Grant management and nonprofit fiscal accountability; NASW Code of Ethics 3.09 (Commitments to Employers)",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "MOST",
+    "question": "A social worker is supervising three case managers at a community agency. One case manager consistently misses documentation deadlines, affecting agency billing and compliance. What is the MOST appropriate supervisory response?",
+    "options": [
+      "Reassign the case manager's clients to other staff immediately",
+      "Address the issue in supervision by exploring barriers, setting clear expectations, and developing a performance improvement plan",
+      "Report the case manager to the state licensing board for unethical conduct",
+      "Ignore the issue and assume the case manager will improve with time"
+    ],
+    "correct": "B",
+    "explanation": "Administrative supervision includes monitoring staff performance, identifying barriers to productivity, and using structured processes (like performance improvement plans) to correct deficiencies. The supervisor should explore whether the issue is a skill deficit, knowledge gap, or personal stressor before escalating. Immediate reassignment (A) or licensing complaints (C) are premature without a corrective process.",
+    "distractor": "C is reserved for ethical violations, not performance issues. D is a failure of supervisory responsibility. A skips the progressive discipline process.",
+    "framework": "Administrative supervision; progressive discipline process; NASW Code of Ethics 3.01 (Supervision and Consultation)",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "GENERAL",
+    "question": "What is the PRIMARY distinction between administrative supervision and clinical supervision in social work?",
+    "options": [
+      "Administrative supervision focuses on the social worker's emotional reactions to clients; clinical supervision focuses on agency policies",
+      "Administrative supervision addresses agency operations, policies, and performance; clinical supervision focuses on direct practice skills and client outcomes",
+      "Administrative supervision is provided by licensed social workers only; clinical supervision can be provided by any manager",
+      "Clinical supervision is mandatory; administrative supervision is optional"
+    ],
+    "correct": "B",
+    "explanation": "Administrative supervision focuses on organizational functioning — workload, documentation, compliance, agency policies, and staff performance. Clinical supervision focuses on the quality of direct practice — case conceptualization, intervention skills, ethical decision-making, and professional development. Both are often provided by the same supervisor but serve distinct functions.",
+    "distractor": "A reverses the definitions. C is incorrect — both require qualified supervisors. D is incorrect — both types of supervision are standard agency practice.",
+    "framework": "Social work supervision — administrative vs. clinical functions (Kadushin & Harkness)",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "NEXT",
+    "question": "A social worker has been asked to conduct a program evaluation of an agency's substance use treatment program that has been running for two years. The director wants to know whether the program is achieving its intended outcomes. What type of evaluation should the social worker conduct NEXT?",
+    "options": [
+      "Formative evaluation",
+      "Needs assessment",
+      "Summative evaluation",
+      "Cost-benefit analysis"
+    ],
+    "correct": "C",
+    "explanation": "A summative evaluation (also called outcome evaluation) assesses whether a program has achieved its intended outcomes after it has been running. Since the program has been in operation for two years and the question is about outcomes, a summative evaluation is indicated. Formative evaluation (A) is conducted during program development to improve the program, not assess final outcomes.",
+    "distractor": "Formative evaluation (A) is done during development/early implementation. Needs assessment (B) precedes program design. Cost-benefit analysis (D) is a specific economic analysis, not the first step.",
+    "framework": "Program evaluation — formative vs. summative evaluation (Scriven)",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "FIRST",
+    "question": "A social worker is hired as the director of a small nonprofit serving immigrant families. In reviewing the organization, she discovers there is no board of directors currently active. What should she do FIRST?",
+    "options": [
+      "Apply for new grants to fund organizational development",
+      "Recruit and reconstitute an active board of directors as required by nonprofit governance standards",
+      "Hire new staff to build program capacity",
+      "Develop a new strategic plan for the organization"
+    ],
+    "correct": "B",
+    "explanation": "A board of directors is legally required for nonprofit organizations and is the governing body responsible for fiduciary oversight, strategic direction, and legal accountability. Without a functioning board, the organization cannot operate ethically or legally. Reconstituting the board must come before other organizational development activities.",
+    "distractor": "All other options (grants, hiring, strategic planning) depend on having governance structures in place. A board must approve major decisions, strategic plans, and financial commitments.",
+    "framework": "Nonprofit governance — board of directors' legal and fiduciary role",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "MOST",
+    "question": "A social worker employed by a state agency disagrees with a new policy that she believes will harm low-income clients by restricting eligibility for benefits. What is the MOST appropriate professional response?",
+    "options": [
+      "Refuse to implement the policy and continue serving clients under the old guidelines",
+      "Implement the policy while using legitimate channels — such as internal advocacy, professional organizations, and legislative contacts — to seek change",
+      "Immediately quit the agency in protest to avoid participating in client harm",
+      "Advise clients to sue the agency to challenge the policy"
+    ],
+    "correct": "B",
+    "explanation": "Social workers are obligated to follow agency policies (NASW Code 3.09) while also advocating for social justice (NASW Code 6.04). The appropriate response is dual: implement the policy (to avoid client harm from disrupted services) while actively pursuing change through internal and external legitimate channels. Unilateral refusal (A) may harm clients and violate employment obligations.",
+    "distractor": "A could harm clients if services are disrupted. C abandons clients. D is premature and may harm clients further. B reflects the ethical balance between employer obligation and advocacy.",
+    "framework": "NASW Code of Ethics 3.09 (Commitments to Employers); 6.04 (Social and Political Action)",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "BEST",
+    "question": "A social worker is preparing to testify before a legislative committee about the need for increased mental health funding for children. Which approach is BEST for effective legislative advocacy?",
+    "options": [
+      "Present emotional personal stories only, without data, to appeal to legislators' compassion",
+      "Provide a lengthy academic review of the literature on child mental health",
+      "Combine compelling client stories with clear data and specific, actionable policy recommendations",
+      "Focus the testimony on criticizing the current administration's funding decisions"
+    ],
+    "correct": "C",
+    "explanation": "Effective legislative testimony combines the emotional impact of client stories (to make the issue concrete and human) with data (to establish need and credibility) and specific policy asks (to give legislators a clear action to take). Stories alone lack credibility; data alone lacks emotional resonance; criticism without solutions is ineffective advocacy.",
+    "distractor": "A lacks credibility. B loses legislative attention. D is adversarial without being constructive. C is the evidence-based approach to policy advocacy testimony.",
+    "framework": "Legislative advocacy — Jansson's model; effective testimony structure",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "GENERAL",
+    "question": "A community organizing approach that uses confrontational tactics, targets specific power holders, and relies on building membership power among affected community members is BEST described as which of Rothman's models?",
+    "options": [
+      "Locality development",
+      "Social planning",
+      "Social action",
+      "Community capacity building"
+    ],
+    "correct": "C",
+    "explanation": "Social action (Rothman) uses conflict-based tactics, targets power holders, and builds power among marginalized groups to redistribute resources and change systemic inequities. This is distinct from locality development (consensus, self-help) and social planning (technical expertise, data-driven solutions).",
+    "distractor": "Locality development (A) uses consensus, not confrontation. Social planning (B) relies on expert analysis, not membership organizing. 'Community capacity building' (D) is not one of Rothman's original three models.",
+    "framework": "Rothman's models of community organization — social action model",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "FIRST",
+    "question": "A social worker at a community health center is asked to develop a new diabetes management program for Latino adults in the community. What should the social worker do FIRST to ensure the program is culturally responsive?",
+    "options": [
+      "Translate existing educational materials into Spanish",
+      "Engage community members, including Latino adults with diabetes and community leaders, in the program design process",
+      "Hire a Latino staff member to lead the program",
+      "Review evidence-based diabetes programs and replicate the most successful model"
+    ],
+    "correct": "B",
+    "explanation": "Culturally responsive program development requires engaging the target community as active partners in design, not as passive recipients of a pre-designed program. Community participation ensures the program addresses actual cultural needs, uses appropriate language and materials, and builds community ownership and trust. This reflects principles of cultural humility in macro practice.",
+    "distractor": "A (translation) is insufficient — cultural responsiveness is far broader than language. C (hiring) is one component, not the first step. D (replicating) may not fit the local community context.",
+    "framework": "Culturally responsive macro practice; community participatory approaches; cultural humility",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "MOST",
+    "question": "A social worker managing a team is asked by her supervisor to implement a change in service delivery that the social worker believes will negatively affect client outcomes. The social worker has already raised the concern with her supervisor once, who dismissed it. What is the MOST appropriate next step?",
+    "options": [
+      "Implement the change and continue to raise the concern through internal organizational channels",
+      "Refuse to implement the change and document the supervisor's directive",
+      "Immediately contact the agency's funding source to report the concern",
+      "Resign from the position to avoid implementing a harmful policy"
+    ],
+    "correct": "A",
+    "explanation": "Social workers follow reasonable employer directives (NASW Code 3.09) while continuing to advocate for client welfare through legitimate channels. After raising a concern once without resolution, the next step is to implement the directive while pursuing the concern through additional internal channels (e.g., the supervisor's supervisor, ethics committee, staff meetings). Unilateral refusal (B) and external escalation (C) are premature at this stage.",
+    "distractor": "B is appropriate only in cases of clear ethical violations, not disagreements about policy effectiveness. C bypasses internal channels. D abandons clients and the advocacy effort.",
+    "framework": "NASW Code of Ethics 3.09 (Commitments to Employers); organizational advocacy",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "NEXT",
+    "question": "A social worker facilitating a task group has just completed a community asset mapping exercise identifying strengths and resources in a low-income neighborhood. What should the social worker do NEXT in the community development process?",
+    "options": [
+      "Write a grant proposal to secure funding for new programs",
+      "Work with community members to prioritize identified needs and develop action plans that leverage existing assets",
+      "Present the asset map to the city council to request additional resources",
+      "Begin organizing community members to protest inadequate city services"
+    ],
+    "correct": "B",
+    "explanation": "After mapping community assets, the next step in locality development is to engage community members in using those assets to address prioritized needs. The asset-based community development (ABCD) model emphasizes building on existing community strengths. Action planning with residents keeps control within the community and builds capacity.",
+    "distractor": "A, C, and D may all be subsequent strategies, but they skip the critical participatory planning step where community members drive the process.",
+    "framework": "Asset-based community development (ABCD) — McKnight & Kretzmann; community development process",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "GENERAL",
+    "question": "In nonprofit management, which body has the ULTIMATE legal and fiduciary responsibility for the organization's mission, finances, and compliance?",
+    "options": [
+      "The executive director",
+      "The board of directors",
+      "The funding agency",
+      "The program staff"
+    ],
+    "correct": "B",
+    "explanation": "The board of directors holds ultimate legal and fiduciary authority over a nonprofit organization. The board is responsible for setting mission and strategy, ensuring financial accountability, hiring and evaluating the executive director, and maintaining legal compliance. The executive director (A) manages day-to-day operations and is accountable TO the board.",
+    "distractor": "The executive director operates under board authority. Funders (C) have oversight over grant compliance, not the organization broadly. Staff (D) implement programs but have no governance authority.",
+    "framework": "Nonprofit governance — board fiduciary roles and executive director relationship",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "BEST",
+    "question": "A social worker wants to measure whether a job readiness program is effective before investing in full-scale implementation. The BEST approach is to:",
+    "options": [
+      "Review the literature to find similar programs that showed positive outcomes",
+      "Conduct a pilot program with a small group and use pre/post measures to assess outcomes",
+      "Survey participants about their satisfaction with the program",
+      "Ask supervisors to rate participants' job readiness after the program ends"
+    ],
+    "correct": "B",
+    "explanation": "A pilot program with pre/post measurement allows the social worker to collect preliminary outcome data (e.g., employment knowledge, interview skills, job placement rates) before full implementation. This is an evidence-based approach to program development that minimizes waste of resources and allows for refinement based on data.",
+    "distractor": "A provides background but not local data. C measures satisfaction (process), not outcomes. D uses subjective supervisor ratings without a pre-measure baseline.",
+    "framework": "Evidence-based program development; pilot testing and outcome measurement",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "FIRST",
+    "question": "A social worker is hired to lead an interagency collaboration among five organizations serving youth experiencing homelessness. None of the agencies have worked together before. What should the social worker do FIRST?",
+    "options": [
+      "Develop a shared data system so all agencies can track youth across services",
+      "Establish a memorandum of understanding (MOU) among all agencies outlining roles and responsibilities",
+      "Convene the agencies to build relationships, identify shared goals, and establish a governance structure",
+      "Apply for a collaborative grant to fund joint programming"
+    ],
+    "correct": "C",
+    "explanation": "Before formal agreements or joint systems are possible, the first step in building an interagency collaboration is relationship-building and establishing shared vision and governance. Trust, communication norms, and clarity about decision-making authority must be developed before MOUs, data systems, or funding applications. Collaboration requires a relational foundation.",
+    "distractor": "B (MOU) and A (data systems) require the foundation established in C first. D (grants) requires a functioning collaboration to apply jointly.",
+    "framework": "Interagency collaboration — stages of collaborative development; relationship-first model",
+    "isNew": true
+  },
+  {
+    "domain": "Interventions with Clients",
+    "qtype": "MOST",
+    "question": "According to NASW Code of Ethics Section 6.04, social workers should MOST appropriately:",
+    "options": [
+      "Remain politically neutral to preserve professional objectivity",
+      "Focus exclusively on individual client advocacy and avoid macro-level involvement",
+      "Engage in social and political action to expand resources, ensure equity, and challenge unjust policies and practices",
+      "Advocate only when directly instructed to do so by their employer"
+    ],
+    "correct": "C",
+    "explanation": "NASW Code of Ethics 6.04 explicitly calls social workers to engage in social and political action — including advocating for social justice, equal access, and the elimination of oppressive policies and practices. This is a professional obligation, not an optional activity. Political neutrality (A) is inconsistent with the profession's social justice mandate.",
+    "distractor": "A misunderstands the profession's social justice mandate. B ignores the macro dimension of social work. D makes advocacy contingent on employer direction rather than professional obligation.",
+    "framework": "NASW Code of Ethics 6.04 (Social and Political Action); social work's dual commitment to individuals and society",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A client presents with recurrent, distressing thoughts about contamination and spends 3–4 hours daily washing her hands. She recognizes the thoughts are excessive but cannot resist them. According to the DSM-5, this presentation is MOST consistent with:",
+    "options": [
+      "Generalized anxiety disorder",
+      "Obsessive-compulsive disorder with good insight",
+      "Obsessive-compulsive personality disorder",
+      "Somatic symptom disorder"
+    ],
+    "correct": "B",
+    "explanation": "OCD is characterized by obsessions (recurrent intrusive thoughts — here, contamination fears) and compulsions (repetitive behaviors — here, handwashing) that are time-consuming (>1 hour/day) and cause significant distress. Good/fair insight means the person recognizes the thoughts as excessive. OCD (Axis I) is distinct from OCPD (Axis II/personality) — OCPD involves a pervasive pattern of orderliness and perfectionism, not specific obsessions and compulsions.",
+    "distractor": "GAD involves worry about multiple life domains, not specific obsessions with compulsive rituals. OCPD (C) is a personality style, not obsessive-compulsive symptoms. Somatic symptom disorder (D) involves physical symptoms, not contamination fears.",
+    "framework": "DSM-5 — OCD: obsessions, compulsions, insight specifiers; OCD vs. OCPD distinction",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A 35-year-old woman reports excessive physical complaints — pain, fatigue, nausea — across multiple body systems. Medical workup is negative. She is highly distressed about her health, spends hours researching symptoms, and frequently visits multiple doctors. Her symptoms have persisted for 18 months. According to the DSM-5, this BEST fits:",
+    "options": [
+      "Illness anxiety disorder",
+      "Somatic symptom disorder",
+      "Conversion disorder",
+      "Factitious disorder"
+    ],
+    "correct": "B",
+    "explanation": "Somatic symptom disorder (SSD) requires: (1) one or more distressing somatic symptoms, (2) excessive thoughts, feelings, or behaviors related to the symptoms (disproportionate concern, persistent anxiety, excessive time/energy devoted), and (3) symptoms lasting >6 months. The presence of actual physical symptoms — even if medically unexplained — distinguishes SSD from illness anxiety disorder, where the concern is about having a disease without prominent symptoms.",
+    "distractor": "Illness anxiety disorder (A) involves fear of illness with minimal or no somatic symptoms. Conversion disorder (C) involves neurological symptoms (paralysis, blindness). Factitious disorder (D) involves intentional symptom feigning.",
+    "framework": "DSM-5 — Somatic symptom disorder: somatic symptoms + excessive health-related behaviors/cognitions",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A client reports feeling 'detached from her own thoughts, like watching herself from outside her body,' which has occurred during stressful periods for two years. She is distressed by this experience but maintains reality testing. According to the DSM-5, this BEST describes:",
+    "options": [
+      "Schizophrenia",
+      "Dissociative identity disorder",
+      "Depersonalization/derealization disorder",
+      "Brief psychotic disorder"
+    ],
+    "correct": "C",
+    "explanation": "Depersonalization/derealization disorder is characterized by persistent or recurrent experiences of depersonalization (detachment from one's own thoughts, feelings, body) and/or derealization (unreality of surroundings), with intact reality testing (the person knows these experiences are not real). This distinguishes it from psychotic disorders, where reality testing is impaired.",
+    "distractor": "Schizophrenia (A) and brief psychotic disorder (D) involve reality testing impairment. Dissociative identity disorder (B) involves distinct identity states, not simply a sense of detachment.",
+    "framework": "DSM-5 — Depersonalization/derealization disorder: persistent depersonalization with intact reality testing",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "According to the DSM-5, which of the following is REQUIRED for a diagnosis of Adjustment Disorder?",
+    "options": [
+      "Symptoms that persist for at least 6 months after the stressor has ended",
+      "An identifiable stressor followed by emotional or behavioral symptoms within 3 months",
+      "Symptoms that meet full criteria for another mental disorder",
+      "The presence of at least three distinct identifiable stressors"
+    ],
+    "correct": "B",
+    "explanation": "Adjustment disorder requires: (1) an identifiable psychosocial stressor, (2) emotional or behavioral symptoms developing within 3 months of the stressor, (3) symptoms that are out of proportion to the stressor's severity or cause significant impairment, and (4) symptoms that do not meet criteria for another mental disorder and resolve within 6 months after the stressor (or its consequences) ends.",
+    "distractor": "A is wrong — symptoms should RESOLVE within 6 months once the stressor ends (not persist). C is wrong — if criteria for another disorder are met, adjustment disorder is not diagnosed. D is wrong — only one identifiable stressor is needed.",
+    "framework": "DSM-5 — Adjustment disorder: stressor → symptoms within 3 months, resolve within 6 months post-stressor",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A 5-year-old child removed from a neglectful home shows minimal emotional response to adults, rarely seeks comfort when distressed, and does not prefer familiar caregivers over strangers. According to the DSM-5, this presentation is MOST consistent with:",
+    "options": [
+      "Autism spectrum disorder",
+      "Reactive attachment disorder",
+      "Disinhibited social engagement disorder",
+      "Selective mutism"
+    ],
+    "correct": "B",
+    "explanation": "Reactive attachment disorder (RAD) is characterized by a consistent pattern of inhibited, emotionally withdrawn behavior — minimal comfort-seeking, minimal emotional responsiveness to caregivers, and limited positive affect — following pathogenic care (neglect, frequent caregiver changes). This is distinct from disinhibited social engagement disorder (DSED), which involves indiscriminate sociability and lack of stranger wariness (the child approaches strangers willingly, not withdrawing from all adults).",
+    "distractor": "ASD (A) involves social communication deficits, restricted interests, and sensory features — not specifically tied to neglect/attachment history. DSED (C) involves approach toward strangers, not withdrawal. Selective mutism (D) is a failure to speak in specific social situations.",
+    "framework": "DSM-5 — Reactive attachment disorder: inhibited pattern, pathogenic care, minimal comfort-seeking",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A client presents with recurrent episodes of binge eating — consuming large amounts of food rapidly until uncomfortably full — accompanied by significant distress, but WITHOUT compensatory behaviors such as purging or excessive exercise. Episodes occur at least once a week for 3 months. According to the DSM-5, the MOST accurate diagnosis is:",
+    "options": [
+      "Bulimia nervosa",
+      "Anorexia nervosa, binge-eating/purging type",
+      "Binge-eating disorder",
+      "Other specified feeding or eating disorder"
+    ],
+    "correct": "C",
+    "explanation": "Binge-eating disorder (BED) requires recurrent binge-eating episodes (at least once/week for 3 months), marked distress, and the ABSENCE of recurrent compensatory behaviors. Bulimia nervosa (A) requires compensatory behaviors (purging, fasting, excessive exercise). Anorexia nervosa binge-purge type (B) requires significantly low body weight. BED is the most prevalent eating disorder in the US.",
+    "distractor": "Bulimia (A) requires compensatory behaviors — the key distinguishing feature absent here. Anorexia binge-purge (B) requires low weight restriction. OSFED (D) is used when full criteria for a specific disorder are not met.",
+    "framework": "DSM-5 — Binge-eating disorder: binge eating without compensatory behaviors; ≥1x/week for 3 months",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "According to the DSM-5, Intellectual Disability (Intellectual Developmental Disorder) is characterized by deficits in BOTH intellectual functioning AND:",
+    "options": [
+      "Academic achievement below grade level",
+      "Adaptive functioning in conceptual, social, and practical domains",
+      "Sensory processing difficulties and repetitive behaviors",
+      "Expressive and receptive language delays"
+    ],
+    "correct": "B",
+    "explanation": "DSM-5 requires two criteria for Intellectual Disability: (1) deficits in intellectual functions (confirmed by clinical assessment and standardized testing, typically IQ ~70 or below), AND (2) deficits in adaptive functioning in conceptual (reading, math, reasoning), social (communication, social judgment), and practical domains (self-care, job skills). Severity (mild, moderate, severe, profound) is determined by adaptive functioning, not IQ score alone.",
+    "distractor": "Academic achievement (A) is one aspect of adaptive functioning but not the full criterion. Sensory/repetitive behaviors (C) describe ASD. Language delays (D) may co-occur but are not the defining criterion.",
+    "framework": "DSM-5 — Intellectual Disability: deficits in intellectual AND adaptive functioning; severity by adaptive function",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A client with no psychotic history presents with sudden onset of paralysis in his right arm following a car accident. Neurological workup is negative. He appears oddly unconcerned about his inability to move his arm. According to the DSM-5, this presentation is MOST consistent with:",
+    "options": [
+      "Somatic symptom disorder",
+      "Factitious disorder",
+      "Conversion disorder (Functional Neurological Symptom Disorder)",
+      "Illness anxiety disorder"
+    ],
+    "correct": "C",
+    "explanation": "Conversion disorder (Functional Neurological Symptom Disorder) involves one or more symptoms of altered voluntary motor or sensory function (here, motor paralysis) that are incompatible with recognized neurological or medical conditions, often following a psychological stressor. 'La belle indifférence' — apparent lack of concern about a serious symptom — is a classic associated feature in conversion disorder, though it is not required for diagnosis.",
+    "distractor": "SSD (A) involves physical symptoms WITH excessive health-related worry — here the client shows indifference. Factitious disorder (B) involves intentional feigning for the sick role. Illness anxiety (D) involves fear of disease without prominent symptoms.",
+    "framework": "DSM-5 — Conversion disorder: neurological symptoms inconsistent with known conditions; la belle indifférence",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A social worker is assessing a 17-year-old who has had three or more episodes of explosive verbal and physical aggression grossly disproportionate to the provocation, occurring at least three times within one year. The aggression is impulsive and not premeditated. He is not intoxicated. According to the DSM-5, this BEST fits:",
+    "options": [
+      "Conduct disorder",
+      "Antisocial personality disorder",
+      "Intermittent explosive disorder",
+      "Oppositional defiant disorder"
+    ],
+    "correct": "C",
+    "explanation": "Intermittent Explosive Disorder (IED) involves recurrent outbursts of impulsive, reactive aggression that are grossly disproportionate to the provocation. DSM-5 requires: (A) recurrent outbursts (≥3 within 12 months involving damage/assault; or ≥2 per week for 3 months for verbal/non-damaging), (B) impulsive/reactive (not premeditated), and (C) clinically significant distress or impairment. Must be 6+ years old.",
+    "distractor": "Conduct disorder (A) involves a persistent pattern of violating others' rights/rules — broader than explosive anger. ASPD (B) requires age 18+ and a pervasive pattern, not just explosive episodes. ODD (D) involves argumentative/defiant behavior toward authority, not explosive aggression.",
+    "framework": "DSM-5 — Intermittent explosive disorder: recurrent, impulsive, disproportionate aggression outbursts",
+    "isNew": true
+  },
+  {
+    "domain": "Assessment & Intervention Planning",
+    "qtype": "GENERAL",
+    "question": "A client reports persistent and excessive anxiety about being in situations from which escape might be difficult — specifically public transportation and open spaces — and actively avoids these situations or endures them with extreme distress. Symptoms have lasted 7 months. According to the DSM-5, this BEST fits:",
+    "options": [
+      "Social anxiety disorder",
+      "Panic disorder",
+      "Specific phobia",
+      "Agoraphobia"
+    ],
+    "correct": "D",
+    "explanation": "Agoraphobia involves marked fear/anxiety about ≥2 of 5 situation types: public transportation, open spaces, enclosed spaces, crowds, or being outside the home alone. Avoidance or extreme distress must last ≥6 months. Social anxiety disorder (A) involves fear of social scrutiny, not these specific situations. Specific phobia (C) involves fear of a single specific object/situation. Panic disorder (B) involves recurrent unexpected panic attacks with ongoing worry about future attacks.",
+    "distractor": "Social anxiety (A) fears judgment/embarrassment in social situations, not escape difficulty. Specific phobia (C) is narrowly defined (one stimulus). Panic disorder (B) is about unexpected attacks, which may or may not be present with agoraphobia.",
+    "framework": "DSM-5 — Agoraphobia: fear/avoidance of ≥2 situation types; ≥6 months; distinct from social anxiety and specific phobia",
+    "isNew": true
   }
-,
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "FIRST",
-  "question": "A social worker at a community nonprofit is asked to assess whether a low-income neighborhood has adequate mental health services. What should the social worker do FIRST?",
-  "options": [
-    "Present findings to the city council to secure funding",
-    "Conduct a community needs assessment using multiple data sources and stakeholder input",
-    "Develop a new mental health program based on the social worker's clinical experience",
-    "Partner with local hospitals to create a referral network"
-  ],
-  "correct": "B",
-  "explanation": "A community needs assessment is the foundational first step in macro practice. It identifies gaps, assets, and priorities using quantitative data (census, health statistics) and qualitative input (focus groups, key informant interviews) from community members and stakeholders before any program or advocacy response is designed.",
-  "distractor": "Options A, C, and D all represent actions that come AFTER the needs assessment — they assume the problem and solution are already known.",
-  "framework": "Macro social work practice — community needs assessment as the planned change first step"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "NEXT",
-  "question": "A community social worker has completed a needs assessment showing that elderly residents in a rural county lack transportation to medical appointments. Community members, local churches, and health providers have all expressed interest in addressing this gap. What should the social worker do NEXT?",
-  "options": [
-    "Apply for a federal grant to fund a transportation program",
-    "Convene a coalition meeting with interested stakeholders to plan a collaborative response",
-    "Hire volunteer drivers and launch a transportation program immediately",
-    "Advocate for public bus service expansion at the next county commissioner meeting"
-  ],
-  "correct": "B",
-  "explanation": "After a needs assessment, the next step in macro practice is to engage stakeholders in collaborative planning. Building a coalition leverages existing community interest, ensures buy-in, distributes responsibility, and increases sustainability. Jumping to implementation (C), funding (A), or advocacy (D) without stakeholder alignment bypasses this critical step.",
-  "distractor": "A is premature — you need a program plan before a grant application. C skips planning. D is one strategy, not the coordinated next step.",
-  "framework": "Coalition building and collaborative planning in macro practice"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "BEST",
-  "question": "A social worker wants to change a city ordinance that criminalizes public sleeping, which primarily affects homeless individuals. Which advocacy strategy is BEST when the social worker has access to a sympathetic city council member?",
-  "options": [
-    "Organize a public protest to pressure the city council to act",
-    "Use an insider strategy by working directly with the council member to propose amendments",
-    "File a legal complaint with the state civil rights commission",
-    "Conduct a media campaign highlighting the harmful effects of the ordinance"
-  ],
-  "correct": "B",
-  "explanation": "When an advocate has access to a sympathetic decision-maker (insider access), an insider strategy — working directly with that person to craft and advance policy change — is more effective and efficient than outside pressure tactics. Insider strategies are appropriate when you have allies within the system.",
-  "distractor": "Outside strategies (protest, media) are appropriate when insider access is unavailable or when public pressure is needed. Legal action (C) is a different type of strategy used when rights violations are documented.",
-  "framework": "Policy advocacy — insider vs. outsider strategies; Jansson's legislative advocacy model"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "GENERAL",
-  "question": "According to Rothman's models of community organization, which model is BEST characterized by consensus-building, broad participation, and self-help among community members?",
-  "options": [
-    "Social action",
-    "Social planning",
-    "Locality development",
-    "Community advocacy"
-  ],
-  "correct": "C",
-  "explanation": "Locality development (also called community development) emphasizes broad community participation, consensus, self-help, and building community capacity. Social action (A) focuses on conflict and power redistribution. Social planning (B) relies on technical expertise and data-driven problem solving. 'Community advocacy' is not one of Rothman's three original models.",
-  "distractor": "All three models are valid approaches, but the key words 'consensus-building, broad participation, and self-help' specifically describe locality development.",
-  "framework": "Rothman's models of community organization — locality development, social planning, social action"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "GENERAL",
-  "question": "A social worker is developing a new after-school program for at-risk youth. She creates a logic model. Which component of the logic model describes the direct products of the program's activities (e.g., number of youth served, sessions held)?",
-  "options": [
-    "Outcomes",
-    "Inputs",
-    "Outputs",
-    "Impact"
-  ],
-  "correct": "C",
-  "explanation": "Outputs are the direct, measurable products of program activities — what is produced (e.g., '150 youth enrolled,' '48 group sessions held'). Outcomes are changes in knowledge, attitudes, or behavior. Inputs are resources invested. Impact is long-term, population-level change. Confusing outputs and outcomes is a common exam mistake.",
-  "distractor": "Outcomes (A) are changes in participants — outputs produce outcomes. Inputs (B) go IN to the program. Impact (D) is the broader long-term community change.",
-  "framework": "Program development and evaluation — logic model components"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "BEST",
-  "question": "A social worker directing a nonprofit receives a grant with specific deliverables and reporting requirements. To BEST ensure accountability to the funder and the community served, the social worker should:",
-  "options": [
-    "Spend the grant funds as needed to meet the community's emerging needs, regardless of funder restrictions",
-    "Implement the program as designed, collect data on outputs and outcomes, and report accurately to the funder",
-    "Redirect unspent funds at year-end to other organizational priorities",
-    "Focus only on qualitative success stories rather than quantitative data to demonstrate impact"
-  ],
-  "correct": "B",
-  "explanation": "Grant accountability requires implementing the program as designed, collecting the agreed-upon data (both outputs and outcomes), and reporting accurately and transparently to the funder. Fidelity to the grant agreement is an ethical and legal obligation. Misusing funds (A, C) violates the grant contract and may constitute fraud.",
-  "distractor": "B reflects fiscal and programmatic accountability. The other options reflect misuse or incomplete accountability to funders.",
-  "framework": "Grant management and nonprofit fiscal accountability; NASW Code of Ethics 3.09 (Commitments to Employers)"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "MOST",
-  "question": "A social worker is supervising three case managers at a community agency. One case manager consistently misses documentation deadlines, affecting agency billing and compliance. What is the MOST appropriate supervisory response?",
-  "options": [
-    "Reassign the case manager's clients to other staff immediately",
-    "Address the issue in supervision by exploring barriers, setting clear expectations, and developing a performance improvement plan",
-    "Report the case manager to the state licensing board for unethical conduct",
-    "Ignore the issue and assume the case manager will improve with time"
-  ],
-  "correct": "B",
-  "explanation": "Administrative supervision includes monitoring staff performance, identifying barriers to productivity, and using structured processes (like performance improvement plans) to correct deficiencies. The supervisor should explore whether the issue is a skill deficit, knowledge gap, or personal stressor before escalating. Immediate reassignment (A) or licensing complaints (C) are premature without a corrective process.",
-  "distractor": "C is reserved for ethical violations, not performance issues. D is a failure of supervisory responsibility. A skips the progressive discipline process.",
-  "framework": "Administrative supervision; progressive discipline process; NASW Code of Ethics 3.01 (Supervision and Consultation)"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "GENERAL",
-  "question": "What is the PRIMARY distinction between administrative supervision and clinical supervision in social work?",
-  "options": [
-    "Administrative supervision focuses on the social worker's emotional reactions to clients; clinical supervision focuses on agency policies",
-    "Administrative supervision addresses agency operations, policies, and performance; clinical supervision focuses on direct practice skills and client outcomes",
-    "Administrative supervision is provided by licensed social workers only; clinical supervision can be provided by any manager",
-    "Clinical supervision is mandatory; administrative supervision is optional"
-  ],
-  "correct": "B",
-  "explanation": "Administrative supervision focuses on organizational functioning — workload, documentation, compliance, agency policies, and staff performance. Clinical supervision focuses on the quality of direct practice — case conceptualization, intervention skills, ethical decision-making, and professional development. Both are often provided by the same supervisor but serve distinct functions.",
-  "distractor": "A reverses the definitions. C is incorrect — both require qualified supervisors. D is incorrect — both types of supervision are standard agency practice.",
-  "framework": "Social work supervision — administrative vs. clinical functions (Kadushin & Harkness)"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "NEXT",
-  "question": "A social worker has been asked to conduct a program evaluation of an agency's substance use treatment program that has been running for two years. The director wants to know whether the program is achieving its intended outcomes. What type of evaluation should the social worker conduct NEXT?",
-  "options": [
-    "Formative evaluation",
-    "Needs assessment",
-    "Summative evaluation",
-    "Cost-benefit analysis"
-  ],
-  "correct": "C",
-  "explanation": "A summative evaluation (also called outcome evaluation) assesses whether a program has achieved its intended outcomes after it has been running. Since the program has been in operation for two years and the question is about outcomes, a summative evaluation is indicated. Formative evaluation (A) is conducted during program development to improve the program, not assess final outcomes.",
-  "distractor": "Formative evaluation (A) is done during development/early implementation. Needs assessment (B) precedes program design. Cost-benefit analysis (D) is a specific economic analysis, not the first step.",
-  "framework": "Program evaluation — formative vs. summative evaluation (Scriven)"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "FIRST",
-  "question": "A social worker is hired as the director of a small nonprofit serving immigrant families. In reviewing the organization, she discovers there is no board of directors currently active. What should she do FIRST?",
-  "options": [
-    "Apply for new grants to fund organizational development",
-    "Recruit and reconstitute an active board of directors as required by nonprofit governance standards",
-    "Hire new staff to build program capacity",
-    "Develop a new strategic plan for the organization"
-  ],
-  "correct": "B",
-  "explanation": "A board of directors is legally required for nonprofit organizations and is the governing body responsible for fiduciary oversight, strategic direction, and legal accountability. Without a functioning board, the organization cannot operate ethically or legally. Reconstituting the board must come before other organizational development activities.",
-  "distractor": "All other options (grants, hiring, strategic planning) depend on having governance structures in place. A board must approve major decisions, strategic plans, and financial commitments.",
-  "framework": "Nonprofit governance — board of directors' legal and fiduciary role"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "MOST",
-  "question": "A social worker employed by a state agency disagrees with a new policy that she believes will harm low-income clients by restricting eligibility for benefits. What is the MOST appropriate professional response?",
-  "options": [
-    "Refuse to implement the policy and continue serving clients under the old guidelines",
-    "Implement the policy while using legitimate channels — such as internal advocacy, professional organizations, and legislative contacts — to seek change",
-    "Immediately quit the agency in protest to avoid participating in client harm",
-    "Advise clients to sue the agency to challenge the policy"
-  ],
-  "correct": "B",
-  "explanation": "Social workers are obligated to follow agency policies (NASW Code 3.09) while also advocating for social justice (NASW Code 6.04). The appropriate response is dual: implement the policy (to avoid client harm from disrupted services) while actively pursuing change through internal and external legitimate channels. Unilateral refusal (A) may harm clients and violate employment obligations.",
-  "distractor": "A could harm clients if services are disrupted. C abandons clients. D is premature and may harm clients further. B reflects the ethical balance between employer obligation and advocacy.",
-  "framework": "NASW Code of Ethics 3.09 (Commitments to Employers); 6.04 (Social and Political Action)"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "BEST",
-  "question": "A social worker is preparing to testify before a legislative committee about the need for increased mental health funding for children. Which approach is BEST for effective legislative advocacy?",
-  "options": [
-    "Present emotional personal stories only, without data, to appeal to legislators' compassion",
-    "Provide a lengthy academic review of the literature on child mental health",
-    "Combine compelling client stories with clear data and specific, actionable policy recommendations",
-    "Focus the testimony on criticizing the current administration's funding decisions"
-  ],
-  "correct": "C",
-  "explanation": "Effective legislative testimony combines the emotional impact of client stories (to make the issue concrete and human) with data (to establish need and credibility) and specific policy asks (to give legislators a clear action to take). Stories alone lack credibility; data alone lacks emotional resonance; criticism without solutions is ineffective advocacy.",
-  "distractor": "A lacks credibility. B loses legislative attention. D is adversarial without being constructive. C is the evidence-based approach to policy advocacy testimony.",
-  "framework": "Legislative advocacy — Jansson's model; effective testimony structure"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "GENERAL",
-  "question": "A community organizing approach that uses confrontational tactics, targets specific power holders, and relies on building membership power among affected community members is BEST described as which of Rothman's models?",
-  "options": [
-    "Locality development",
-    "Social planning",
-    "Social action",
-    "Community capacity building"
-  ],
-  "correct": "C",
-  "explanation": "Social action (Rothman) uses conflict-based tactics, targets power holders, and builds power among marginalized groups to redistribute resources and change systemic inequities. This is distinct from locality development (consensus, self-help) and social planning (technical expertise, data-driven solutions).",
-  "distractor": "Locality development (A) uses consensus, not confrontation. Social planning (B) relies on expert analysis, not membership organizing. 'Community capacity building' (D) is not one of Rothman's original three models.",
-  "framework": "Rothman's models of community organization — social action model"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "FIRST",
-  "question": "A social worker at a community health center is asked to develop a new diabetes management program for Latino adults in the community. What should the social worker do FIRST to ensure the program is culturally responsive?",
-  "options": [
-    "Translate existing educational materials into Spanish",
-    "Engage community members, including Latino adults with diabetes and community leaders, in the program design process",
-    "Hire a Latino staff member to lead the program",
-    "Review evidence-based diabetes programs and replicate the most successful model"
-  ],
-  "correct": "B",
-  "explanation": "Culturally responsive program development requires engaging the target community as active partners in design, not as passive recipients of a pre-designed program. Community participation ensures the program addresses actual cultural needs, uses appropriate language and materials, and builds community ownership and trust. This reflects principles of cultural humility in macro practice.",
-  "distractor": "A (translation) is insufficient — cultural responsiveness is far broader than language. C (hiring) is one component, not the first step. D (replicating) may not fit the local community context.",
-  "framework": "Culturally responsive macro practice; community participatory approaches; cultural humility"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "MOST",
-  "question": "A social worker managing a team is asked by her supervisor to implement a change in service delivery that the social worker believes will negatively affect client outcomes. The social worker has already raised the concern with her supervisor once, who dismissed it. What is the MOST appropriate next step?",
-  "options": [
-    "Implement the change and continue to raise the concern through internal organizational channels",
-    "Refuse to implement the change and document the supervisor's directive",
-    "Immediately contact the agency's funding source to report the concern",
-    "Resign from the position to avoid implementing a harmful policy"
-  ],
-  "correct": "A",
-  "explanation": "Social workers follow reasonable employer directives (NASW Code 3.09) while continuing to advocate for client welfare through legitimate channels. After raising a concern once without resolution, the next step is to implement the directive while pursuing the concern through additional internal channels (e.g., the supervisor's supervisor, ethics committee, staff meetings). Unilateral refusal (B) and external escalation (C) are premature at this stage.",
-  "distractor": "B is appropriate only in cases of clear ethical violations, not disagreements about policy effectiveness. C bypasses internal channels. D abandons clients and the advocacy effort.",
-  "framework": "NASW Code of Ethics 3.09 (Commitments to Employers); organizational advocacy"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "NEXT",
-  "question": "A social worker facilitating a task group has just completed a community asset mapping exercise identifying strengths and resources in a low-income neighborhood. What should the social worker do NEXT in the community development process?",
-  "options": [
-    "Write a grant proposal to secure funding for new programs",
-    "Work with community members to prioritize identified needs and develop action plans that leverage existing assets",
-    "Present the asset map to the city council to request additional resources",
-    "Begin organizing community members to protest inadequate city services"
-  ],
-  "correct": "B",
-  "explanation": "After mapping community assets, the next step in locality development is to engage community members in using those assets to address prioritized needs. The asset-based community development (ABCD) model emphasizes building on existing community strengths. Action planning with residents keeps control within the community and builds capacity.",
-  "distractor": "A, C, and D may all be subsequent strategies, but they skip the critical participatory planning step where community members drive the process.",
-  "framework": "Asset-based community development (ABCD) — McKnight & Kretzmann; community development process"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "GENERAL",
-  "question": "In nonprofit management, which body has the ULTIMATE legal and fiduciary responsibility for the organization's mission, finances, and compliance?",
-  "options": [
-    "The executive director",
-    "The board of directors",
-    "The funding agency",
-    "The program staff"
-  ],
-  "correct": "B",
-  "explanation": "The board of directors holds ultimate legal and fiduciary authority over a nonprofit organization. The board is responsible for setting mission and strategy, ensuring financial accountability, hiring and evaluating the executive director, and maintaining legal compliance. The executive director (A) manages day-to-day operations and is accountable TO the board.",
-  "distractor": "The executive director operates under board authority. Funders (C) have oversight over grant compliance, not the organization broadly. Staff (D) implement programs but have no governance authority.",
-  "framework": "Nonprofit governance — board fiduciary roles and executive director relationship"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "BEST",
-  "question": "A social worker wants to measure whether a job readiness program is effective before investing in full-scale implementation. The BEST approach is to:",
-  "options": [
-    "Review the literature to find similar programs that showed positive outcomes",
-    "Conduct a pilot program with a small group and use pre/post measures to assess outcomes",
-    "Survey participants about their satisfaction with the program",
-    "Ask supervisors to rate participants' job readiness after the program ends"
-  ],
-  "correct": "B",
-  "explanation": "A pilot program with pre/post measurement allows the social worker to collect preliminary outcome data (e.g., employment knowledge, interview skills, job placement rates) before full implementation. This is an evidence-based approach to program development that minimizes waste of resources and allows for refinement based on data.",
-  "distractor": "A provides background but not local data. C measures satisfaction (process), not outcomes. D uses subjective supervisor ratings without a pre-measure baseline.",
-  "framework": "Evidence-based program development; pilot testing and outcome measurement"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "FIRST",
-  "question": "A social worker is hired to lead an interagency collaboration among five organizations serving youth experiencing homelessness. None of the agencies have worked together before. What should the social worker do FIRST?",
-  "options": [
-    "Develop a shared data system so all agencies can track youth across services",
-    "Establish a memorandum of understanding (MOU) among all agencies outlining roles and responsibilities",
-    "Convene the agencies to build relationships, identify shared goals, and establish a governance structure",
-    "Apply for a collaborative grant to fund joint programming"
-  ],
-  "correct": "C",
-  "explanation": "Before formal agreements or joint systems are possible, the first step in building an interagency collaboration is relationship-building and establishing shared vision and governance. Trust, communication norms, and clarity about decision-making authority must be developed before MOUs, data systems, or funding applications. Collaboration requires a relational foundation.",
-  "distractor": "B (MOU) and A (data systems) require the foundation established in C first. D (grants) requires a functioning collaboration to apply jointly.",
-  "framework": "Interagency collaboration — stages of collaborative development; relationship-first model"
-},
-  {
-  "domain": "Interventions with Clients",
-  "qtype": "MOST",
-  "question": "According to NASW Code of Ethics Section 6.04, social workers should MOST appropriately:",
-  "options": [
-    "Remain politically neutral to preserve professional objectivity",
-    "Focus exclusively on individual client advocacy and avoid macro-level involvement",
-    "Engage in social and political action to expand resources, ensure equity, and challenge unjust policies and practices",
-    "Advocate only when directly instructed to do so by their employer"
-  ],
-  "correct": "C",
-  "explanation": "NASW Code of Ethics 6.04 explicitly calls social workers to engage in social and political action — including advocating for social justice, equal access, and the elimination of oppressive policies and practices. This is a professional obligation, not an optional activity. Political neutrality (A) is inconsistent with the profession's social justice mandate.",
-  "distractor": "A misunderstands the profession's social justice mandate. B ignores the macro dimension of social work. D makes advocacy contingent on employer direction rather than professional obligation.",
-  "framework": "NASW Code of Ethics 6.04 (Social and Political Action); social work's dual commitment to individuals and society"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A client presents with recurrent, distressing thoughts about contamination and spends 3–4 hours daily washing her hands. She recognizes the thoughts are excessive but cannot resist them. According to the DSM-5, this presentation is MOST consistent with:",
-  "options": [
-    "Generalized anxiety disorder",
-    "Obsessive-compulsive disorder with good insight",
-    "Obsessive-compulsive personality disorder",
-    "Somatic symptom disorder"
-  ],
-  "correct": "B",
-  "explanation": "OCD is characterized by obsessions (recurrent intrusive thoughts — here, contamination fears) and compulsions (repetitive behaviors — here, handwashing) that are time-consuming (>1 hour/day) and cause significant distress. Good/fair insight means the person recognizes the thoughts as excessive. OCD (Axis I) is distinct from OCPD (Axis II/personality) — OCPD involves a pervasive pattern of orderliness and perfectionism, not specific obsessions and compulsions.",
-  "distractor": "GAD involves worry about multiple life domains, not specific obsessions with compulsive rituals. OCPD (C) is a personality style, not obsessive-compulsive symptoms. Somatic symptom disorder (D) involves physical symptoms, not contamination fears.",
-  "framework": "DSM-5 — OCD: obsessions, compulsions, insight specifiers; OCD vs. OCPD distinction"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A 35-year-old woman reports excessive physical complaints — pain, fatigue, nausea — across multiple body systems. Medical workup is negative. She is highly distressed about her health, spends hours researching symptoms, and frequently visits multiple doctors. Her symptoms have persisted for 18 months. According to the DSM-5, this BEST fits:",
-  "options": [
-    "Illness anxiety disorder",
-    "Somatic symptom disorder",
-    "Conversion disorder",
-    "Factitious disorder"
-  ],
-  "correct": "B",
-  "explanation": "Somatic symptom disorder (SSD) requires: (1) one or more distressing somatic symptoms, (2) excessive thoughts, feelings, or behaviors related to the symptoms (disproportionate concern, persistent anxiety, excessive time/energy devoted), and (3) symptoms lasting >6 months. The presence of actual physical symptoms — even if medically unexplained — distinguishes SSD from illness anxiety disorder, where the concern is about having a disease without prominent symptoms.",
-  "distractor": "Illness anxiety disorder (A) involves fear of illness with minimal or no somatic symptoms. Conversion disorder (C) involves neurological symptoms (paralysis, blindness). Factitious disorder (D) involves intentional symptom feigning.",
-  "framework": "DSM-5 — Somatic symptom disorder: somatic symptoms + excessive health-related behaviors/cognitions"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A client reports feeling 'detached from her own thoughts, like watching herself from outside her body,' which has occurred during stressful periods for two years. She is distressed by this experience but maintains reality testing. According to the DSM-5, this BEST describes:",
-  "options": [
-    "Schizophrenia",
-    "Dissociative identity disorder",
-    "Depersonalization/derealization disorder",
-    "Brief psychotic disorder"
-  ],
-  "correct": "C",
-  "explanation": "Depersonalization/derealization disorder is characterized by persistent or recurrent experiences of depersonalization (detachment from one's own thoughts, feelings, body) and/or derealization (unreality of surroundings), with intact reality testing (the person knows these experiences are not real). This distinguishes it from psychotic disorders, where reality testing is impaired.",
-  "distractor": "Schizophrenia (A) and brief psychotic disorder (D) involve reality testing impairment. Dissociative identity disorder (B) involves distinct identity states, not simply a sense of detachment.",
-  "framework": "DSM-5 — Depersonalization/derealization disorder: persistent depersonalization with intact reality testing"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "According to the DSM-5, which of the following is REQUIRED for a diagnosis of Adjustment Disorder?",
-  "options": [
-    "Symptoms that persist for at least 6 months after the stressor has ended",
-    "An identifiable stressor followed by emotional or behavioral symptoms within 3 months",
-    "Symptoms that meet full criteria for another mental disorder",
-    "The presence of at least three distinct identifiable stressors"
-  ],
-  "correct": "B",
-  "explanation": "Adjustment disorder requires: (1) an identifiable psychosocial stressor, (2) emotional or behavioral symptoms developing within 3 months of the stressor, (3) symptoms that are out of proportion to the stressor's severity or cause significant impairment, and (4) symptoms that do not meet criteria for another mental disorder and resolve within 6 months after the stressor (or its consequences) ends.",
-  "distractor": "A is wrong — symptoms should RESOLVE within 6 months once the stressor ends (not persist). C is wrong — if criteria for another disorder are met, adjustment disorder is not diagnosed. D is wrong — only one identifiable stressor is needed.",
-  "framework": "DSM-5 — Adjustment disorder: stressor → symptoms within 3 months, resolve within 6 months post-stressor"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A 5-year-old child removed from a neglectful home shows minimal emotional response to adults, rarely seeks comfort when distressed, and does not prefer familiar caregivers over strangers. According to the DSM-5, this presentation is MOST consistent with:",
-  "options": [
-    "Autism spectrum disorder",
-    "Reactive attachment disorder",
-    "Disinhibited social engagement disorder",
-    "Selective mutism"
-  ],
-  "correct": "B",
-  "explanation": "Reactive attachment disorder (RAD) is characterized by a consistent pattern of inhibited, emotionally withdrawn behavior — minimal comfort-seeking, minimal emotional responsiveness to caregivers, and limited positive affect — following pathogenic care (neglect, frequent caregiver changes). This is distinct from disinhibited social engagement disorder (DSED), which involves indiscriminate sociability and lack of stranger wariness (the child approaches strangers willingly, not withdrawing from all adults).",
-  "distractor": "ASD (A) involves social communication deficits, restricted interests, and sensory features — not specifically tied to neglect/attachment history. DSED (C) involves approach toward strangers, not withdrawal. Selective mutism (D) is a failure to speak in specific social situations.",
-  "framework": "DSM-5 — Reactive attachment disorder: inhibited pattern, pathogenic care, minimal comfort-seeking"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A client presents with recurrent episodes of binge eating — consuming large amounts of food rapidly until uncomfortably full — accompanied by significant distress, but WITHOUT compensatory behaviors such as purging or excessive exercise. Episodes occur at least once a week for 3 months. According to the DSM-5, the MOST accurate diagnosis is:",
-  "options": [
-    "Bulimia nervosa",
-    "Anorexia nervosa, binge-eating/purging type",
-    "Binge-eating disorder",
-    "Other specified feeding or eating disorder"
-  ],
-  "correct": "C",
-  "explanation": "Binge-eating disorder (BED) requires recurrent binge-eating episodes (at least once/week for 3 months), marked distress, and the ABSENCE of recurrent compensatory behaviors. Bulimia nervosa (A) requires compensatory behaviors (purging, fasting, excessive exercise). Anorexia nervosa binge-purge type (B) requires significantly low body weight. BED is the most prevalent eating disorder in the US.",
-  "distractor": "Bulimia (A) requires compensatory behaviors — the key distinguishing feature absent here. Anorexia binge-purge (B) requires low weight restriction. OSFED (D) is used when full criteria for a specific disorder are not met.",
-  "framework": "DSM-5 — Binge-eating disorder: binge eating without compensatory behaviors; ≥1x/week for 3 months"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "According to the DSM-5, Intellectual Disability (Intellectual Developmental Disorder) is characterized by deficits in BOTH intellectual functioning AND:",
-  "options": [
-    "Academic achievement below grade level",
-    "Adaptive functioning in conceptual, social, and practical domains",
-    "Sensory processing difficulties and repetitive behaviors",
-    "Expressive and receptive language delays"
-  ],
-  "correct": "B",
-  "explanation": "DSM-5 requires two criteria for Intellectual Disability: (1) deficits in intellectual functions (confirmed by clinical assessment and standardized testing, typically IQ ~70 or below), AND (2) deficits in adaptive functioning in conceptual (reading, math, reasoning), social (communication, social judgment), and practical domains (self-care, job skills). Severity (mild, moderate, severe, profound) is determined by adaptive functioning, not IQ score alone.",
-  "distractor": "Academic achievement (A) is one aspect of adaptive functioning but not the full criterion. Sensory/repetitive behaviors (C) describe ASD. Language delays (D) may co-occur but are not the defining criterion.",
-  "framework": "DSM-5 — Intellectual Disability: deficits in intellectual AND adaptive functioning; severity by adaptive function"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A client with no psychotic history presents with sudden onset of paralysis in his right arm following a car accident. Neurological workup is negative. He appears oddly unconcerned about his inability to move his arm. According to the DSM-5, this presentation is MOST consistent with:",
-  "options": [
-    "Somatic symptom disorder",
-    "Factitious disorder",
-    "Conversion disorder (Functional Neurological Symptom Disorder)",
-    "Illness anxiety disorder"
-  ],
-  "correct": "C",
-  "explanation": "Conversion disorder (Functional Neurological Symptom Disorder) involves one or more symptoms of altered voluntary motor or sensory function (here, motor paralysis) that are incompatible with recognized neurological or medical conditions, often following a psychological stressor. 'La belle indifférence' — apparent lack of concern about a serious symptom — is a classic associated feature in conversion disorder, though it is not required for diagnosis.",
-  "distractor": "SSD (A) involves physical symptoms WITH excessive health-related worry — here the client shows indifference. Factitious disorder (B) involves intentional feigning for the sick role. Illness anxiety (D) involves fear of disease without prominent symptoms.",
-  "framework": "DSM-5 — Conversion disorder: neurological symptoms inconsistent with known conditions; la belle indifférence"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A social worker is assessing a 17-year-old who has had three or more episodes of explosive verbal and physical aggression grossly disproportionate to the provocation, occurring at least three times within one year. The aggression is impulsive and not premeditated. He is not intoxicated. According to the DSM-5, this BEST fits:",
-  "options": [
-    "Conduct disorder",
-    "Antisocial personality disorder",
-    "Intermittent explosive disorder",
-    "Oppositional defiant disorder"
-  ],
-  "correct": "C",
-  "explanation": "Intermittent Explosive Disorder (IED) involves recurrent outbursts of impulsive, reactive aggression that are grossly disproportionate to the provocation. DSM-5 requires: (A) recurrent outbursts (≥3 within 12 months involving damage/assault; or ≥2 per week for 3 months for verbal/non-damaging), (B) impulsive/reactive (not premeditated), and (C) clinically significant distress or impairment. Must be 6+ years old.",
-  "distractor": "Conduct disorder (A) involves a persistent pattern of violating others' rights/rules — broader than explosive anger. ASPD (B) requires age 18+ and a pervasive pattern, not just explosive episodes. ODD (D) involves argumentative/defiant behavior toward authority, not explosive aggression.",
-  "framework": "DSM-5 — Intermittent explosive disorder: recurrent, impulsive, disproportionate aggression outbursts"
-},
-  {
-  "domain": "Assessment & Intervention Planning",
-  "qtype": "GENERAL",
-  "question": "A client reports persistent and excessive anxiety about being in situations from which escape might be difficult — specifically public transportation and open spaces — and actively avoids these situations or endures them with extreme distress. Symptoms have lasted 7 months. According to the DSM-5, this BEST fits:",
-  "options": [
-    "Social anxiety disorder",
-    "Panic disorder",
-    "Specific phobia",
-    "Agoraphobia"
-  ],
-  "correct": "D",
-  "explanation": "Agoraphobia involves marked fear/anxiety about ≥2 of 5 situation types: public transportation, open spaces, enclosed spaces, crowds, or being outside the home alone. Avoidance or extreme distress must last ≥6 months. Social anxiety disorder (A) involves fear of social scrutiny, not these specific situations. Specific phobia (C) involves fear of a single specific object/situation. Panic disorder (B) involves recurrent unexpected panic attacks with ongoing worry about future attacks.",
-  "distractor": "Social anxiety (A) fears judgment/embarrassment in social situations, not escape difficulty. Specific phobia (C) is narrowly defined (one stimulus). Panic disorder (B) is about unexpected attacks, which may or may not be present with agoraphobia.",
-  "framework": "DSM-5 — Agoraphobia: fear/avoidance of ≥2 situation types; ≥6 months; distinct from social anxiety and specific phobia"
-}
 ];</script>
 
 <script>
@@ -4598,6 +4681,36 @@ function pickQuestions(domainFilter) {
     pool = QUESTION_BANK.slice();
   }
   return shuffle(pool);
+}
+
+function startNewQuestions() {
+  var pool = QUESTION_BANK.filter(function(q) { return q.isNew === true; });
+  if (!pool.length) { showToast('No new questions found.'); return; }
+  state.currentDomain    = null;
+  state.sessionQuestions = shuffle(pool);
+  state.idx                = 0;
+  state.sessionCorrect     = 0;
+  state.sessionAnswered    = 0;
+  state.sessionDomainStats = {};
+  state.answered           = false;
+  state.sessionActive      = true;
+  state.timerSeconds       = 0;
+  state.nextCheckIn        = 5;
+  showScreen('study');
+  document.getElementById('study-empty').style.display    = 'none';
+  document.getElementById('study-active').style.display   = '';
+  document.getElementById('complete-screen').style.display = 'none';
+  document.getElementById('study-domain-label').textContent = '✨ New Questions';
+  var chip = document.getElementById('live-score-chip');
+  chip.style.visibility = 'hidden';
+  clearInterval(state.timerInterval);
+  state.timerInterval = setInterval(function() {
+    state.timerSeconds++;
+    var m = Math.floor(state.timerSeconds / 60);
+    var s = state.timerSeconds % 60;
+    document.getElementById('study-timer').textContent = m + ':' + (s < 10 ? '0' : '') + s;
+  }, 1000);
+  loadQuestion();
 }
 
 function shuffle(arr) {
