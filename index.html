@@ -4686,8 +4686,8 @@ function pickQuestions(domainFilter) {
 function startNewQuestions() {
   var pool = QUESTION_BANK.filter(function(q) { return q.isNew === true; });
   if (!pool.length) { showToast('No new questions found.'); return; }
-  state.currentDomain    = null;
-  state.sessionQuestions = shuffle(pool);
+  state.currentDomain      = null;
+  state.sessionQuestions   = shuffle(pool);
   state.idx                = 0;
   state.sessionCorrect     = 0;
   state.sessionAnswered    = 0;
@@ -4700,9 +4700,9 @@ function startNewQuestions() {
   document.getElementById('study-empty').style.display    = 'none';
   document.getElementById('study-active').style.display   = '';
   document.getElementById('complete-screen').style.display = 'none';
+  document.getElementById('complete-screen').classList.remove('visible');
   document.getElementById('study-domain-label').textContent = '✨ New Questions';
-  var chip = document.getElementById('live-score-chip');
-  chip.style.visibility = 'hidden';
+  document.getElementById('live-score-chip').style.visibility = 'hidden';
   clearInterval(state.timerInterval);
   state.timerInterval = setInterval(function() {
     state.timerSeconds++;
@@ -4710,7 +4710,7 @@ function startNewQuestions() {
     var s = state.timerSeconds % 60;
     document.getElementById('study-timer').textContent = m + ':' + (s < 10 ? '0' : '') + s;
   }, 1000);
-  loadQuestion();
+  renderQuestion();
 }
 
 function shuffle(arr) {
